@@ -30,6 +30,65 @@ In VSCode find cargo.toml in the root folder and update the microcontroller type
  embassy-stm32 = ...
  ```
 
+In VSCode open ```src/blinky.rs``` and modify the LED ports as follows:
+
+```
+#![no_std]
+#![no_main]
+
+use defmt::*;
+use embassy_executor::Spawner;
+use embassy_stm32::gpio::{Level, Output, Speed};
+use embassy_time::Timer;
+use {defmt_rtt as _, panic_probe as _};
+
+// main is itself an async function.
+#[embassy_executor::main]
+async fn main(_spawner: Spawner) {
+    let p = embassy_stm32::init(Default::default());
+    info!("Hello World!");
+    //PA5 is the onboard LED on the Nucleo F091RC
+    let mut led_u = Output::new(p.PC6, Level::High, Speed::Low);
+    let mut led_d = Output::new(p.PC7, Level::High, Speed::Low);
+    let mut led_l = Output::new(p.PC8, Level::High, Speed::Low);
+    let mut led_r = Output::new(p.PC9, Level::High, Speed::Low);
+
+    loop {
+        info!("high");
+        led_u.set_high();
+        Timer::after_millis(300).await;
+
+        info!("low");
+        led_u.set_low();
+        Timer::after_millis(300).await;
+        
+        info!("high");
+        led_d.set_high();
+        Timer::after_millis(300).await;
+
+        info!("low");
+        led_d.set_low();
+        Timer::after_millis(300).await;
+        
+        info!("high");
+        led_l.set_high();
+        Timer::after_millis(300).await;
+
+        info!("low");
+        led_l.set_low();
+        Timer::after_millis(300).await;
+        
+        info!("high");
+        led_r.set_high();
+        Timer::after_millis(300).await;
+
+        info!("low");
+        led_r.set_low();
+        Timer::after_millis(300).await;
+    }
+}
+```
+
 Connect the DISCOVERY board USB to the computer. From the terminal cd into ```examples/stm32f0``` then compile and run blinky using:
 
 ```cargo run --bin blinky```
