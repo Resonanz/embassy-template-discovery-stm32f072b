@@ -48,10 +48,10 @@ async fn main(_spawner: Spawner) {
     let p = embassy_stm32::init(Default::default());
     info!("Hello World!");
     //PA5 is the onboard LED on the Nucleo F091RC
-    let mut led_u = Output::new(p.PC6, Level::High, Speed::Low);
-    let mut led_d = Output::new(p.PC7, Level::High, Speed::Low);
-    let mut led_l = Output::new(p.PC8, Level::High, Speed::Low);
-    let mut led_r = Output::new(p.PC9, Level::High, Speed::Low);
+    let mut led_u = Output::new(p.PC6, Level::High, Speed::Low);  // UP LED
+    let mut led_d = Output::new(p.PC7, Level::High, Speed::Low);  // DOWN LED
+    let mut led_l = Output::new(p.PC8, Level::High, Speed::Low);  // LEFT LED
+    let mut led_r = Output::new(p.PC9, Level::High, Speed::Low);  // RIGHT LED
 
     loop {
         info!("high");
