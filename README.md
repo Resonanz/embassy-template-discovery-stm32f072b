@@ -1,8 +1,9 @@
 ### Running Embassy's Blinky code on STs STM32F072 Discovery evaluation board.
 
 Notes:
-- Note: Embassy repository: https://github.com/embassy-rs/embassy
-- Note: The microcontroller on the evaluation board is an STM32F072RBT6.
+- Embassy repository: https://github.com/embassy-rs/embassy
+- The microcontroller on the evaluation board is an STM32F072RBT6
+- Schematic: file:///home/rob/Downloads/en.MB1076-F072B-C01_Schematic.pdf
 
 First, clone the Embassy repository:
 
