@@ -3,7 +3,7 @@
 Notes:
 - Embassy repository: https://github.com/embassy-rs/embassy
 - The microcontroller on the evaluation board is an STM32F072RBT6
-- Schematic: file:///home/rob/Downloads/en.MB1076-F072B-C01_Schematic.pdf
+- Schematic: https://www.st.com/en/evaluation-tools/32f072bdiscovery.html#cad-resources
 
 First, clone the Embassy repository:
 
